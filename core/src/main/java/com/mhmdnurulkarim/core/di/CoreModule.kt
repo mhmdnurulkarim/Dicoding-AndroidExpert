@@ -4,6 +4,8 @@ import androidx.room.Room
 import com.mhmdnurulkarim.core.BuildConfig
 import com.mhmdnurulkarim.core.data.UserRepository
 import com.mhmdnurulkarim.core.data.source.local.LocalDataSource
+import com.mhmdnurulkarim.core.data.source.local.datastore.UserDataStore
+import com.mhmdnurulkarim.core.data.source.local.datastore.dataStore
 import com.mhmdnurulkarim.core.data.source.local.room.UserDatabase
 import com.mhmdnurulkarim.core.data.source.remote.RemoteDataSource
 import com.mhmdnurulkarim.core.data.source.remote.network.ApiService
@@ -52,8 +54,10 @@ val networkModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
+    single { UserDataStore.getInstance(androidContext().dataStore) }
     single<IUserRepository> {
         UserRepository(
+            get(),
             get(),
             get()
         )

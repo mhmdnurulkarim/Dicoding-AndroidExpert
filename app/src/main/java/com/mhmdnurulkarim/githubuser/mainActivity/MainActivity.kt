@@ -5,15 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.mhmdnurulkarim.core.data.Resource
 import com.mhmdnurulkarim.core.domain.model.User
 import com.mhmdnurulkarim.core.ui.UserAdapter
 import com.mhmdnurulkarim.githubuser.R
+import com.mhmdnurulkarim.githubuser.darkTheme.DarkThemeActivity
 import com.mhmdnurulkarim.githubuser.databinding.ActivityMainBinding
 import com.mhmdnurulkarim.githubuser.detailUserActivity.DetailUserActivity
 import com.mhmdnurulkarim.githubuser.utils.Const.EXTRA_USER
@@ -94,8 +93,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.menu_darkTheme -> {
-//                        startActivity(Intent(this@MainActivity, DarkThemeActivity::class.java))
-                        Snackbar.make(binding.root, "InPorgress", Snackbar.LENGTH_SHORT).show()
+                        startActivity(Intent(this@MainActivity, DarkThemeActivity::class.java))
                     }
                 }
                 true

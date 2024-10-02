@@ -20,4 +20,8 @@ interface IUserRepository {
     suspend fun insertFavoriteUser(user: User)
 
     suspend fun deleteFavoriteUser(user: User): Int
+
+    suspend fun saveThemeSetting(isDarkMode: Boolean)
+
+    fun getThemeSetting(): Flow<Boolean>
 }

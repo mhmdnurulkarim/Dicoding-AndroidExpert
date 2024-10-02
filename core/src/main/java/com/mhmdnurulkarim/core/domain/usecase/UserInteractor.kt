@@ -21,4 +21,8 @@ class UserInteractor(private val userRepository: IUserRepository): UserUseCase {
     override suspend fun insertFavoriteUser(user: User) = userRepository.insertFavoriteUser(user)
 
     override suspend fun deleteFavoriteUser(user: User): Int = userRepository.deleteFavoriteUser(user)
+
+    override suspend fun saveThemeSetting(isDarkMode: Boolean) = userRepository.saveThemeSetting(isDarkMode)
+
+    override fun getThemeSetting(): Flow<Boolean> = userRepository.getThemeSetting()
 }
