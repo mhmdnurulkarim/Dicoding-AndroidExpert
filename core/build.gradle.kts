@@ -15,7 +15,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", "\"https://api.github.com\"")
-        buildConfigField("String", "API_KEY", "\"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\"")
+        buildConfigField("String", "API_KEY", "\"Isi Token Sendiri\"")
         consumerProguardFiles("consumer-rules.pro")
     }
 
