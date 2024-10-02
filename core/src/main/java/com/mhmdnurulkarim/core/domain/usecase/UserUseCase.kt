@@ -15,7 +15,7 @@ interface UserUseCase {
 
     fun getFavoriteListUser(): Flow<List<User>>
 
-    fun getFavoriteDetailUser(username: String): Flow<User>
+    fun getFavoriteDetailState(username: String): Flow<User>?
 
     suspend fun insertFavoriteUser(user: User)
 

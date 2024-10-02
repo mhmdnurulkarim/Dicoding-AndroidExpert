@@ -1,5 +1,6 @@
 package com.mhmdnurulkarim.core.data
 
+import android.util.Log
 import com.mhmdnurulkarim.core.data.source.NetworkResource
 import com.mhmdnurulkarim.core.data.source.local.LocalDataSource
 import com.mhmdnurulkarim.core.data.source.remote.RemoteDataSource
@@ -72,18 +73,18 @@ class UserRepository(
         }
     }
 
-    override fun getFavoriteDetailUser(username: String): Flow<User> {
-        return localDataSource.getFavoriteDetailUser(username).map {
+    override fun getFavoriteDetailState(username: String): Flow<User> {
+        return localDataSource.getFavoriteDetailState(username).map {
             DataMapper.mapEntityToDomain(it)
         }
     }
 
     override suspend fun insertFavoriteUser(user: User) {
         val domainUser = DataMapper.mapDomainToEntity(user)
-        return localDataSource.insertFavoriteUser(domainUser)
+        localDataSource.insertFavoriteUser(domainUser)
     }
 
-    override suspend fun deleteFavoriteUser(user: User) : Int {
+    override suspend fun deleteFavoriteUser(user: User): Int {
         val domainUser = DataMapper.mapDomainToEntity(user)
         return localDataSource.deleteFavoriteUser(domainUser)
     }

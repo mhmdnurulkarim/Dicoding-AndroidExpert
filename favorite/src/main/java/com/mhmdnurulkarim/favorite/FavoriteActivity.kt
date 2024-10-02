@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mhmdnurulkarim.core.data.Resource
@@ -33,6 +34,8 @@ class FavoriteActivity : AppCompatActivity() {
 
         loadKoinModules(favoriteModule)
 
+        observeFavoriteList()
+
         val mLayoutManager = LinearLayoutManager(this)
         val itemDecoration = DividerItemDecoration(this, mLayoutManager.orientation)
         mAdapter = UserAdapter(
@@ -53,26 +56,15 @@ class FavoriteActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finishAffinity()
         }
-
-        CoroutineScope(Dispatchers.Main).launch {
-            favoriteViewModel.getFavoriteList().observe(this@FavoriteActivity) {
-                when (it) {
-                    is Resource.Error<*> -> onFailed(it.message)
-                    is Resource.Loading<*> -> onLoading()
-                    is Resource.Success<*> -> onSuccess(it.data as List<User>)
-                }
-            }
-        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        CoroutineScope(Dispatchers.Main).launch {
-            favoriteViewModel.getFavoriteList().observe(this@FavoriteActivity) {
-                when (it) {
-                    is Resource.Error<*> -> onFailed(it.message)
-                    is Resource.Loading<*> -> onLoading()
-                    is Resource.Success<*> -> onSuccess(it.data as List<User>)
+    private fun observeFavoriteList() {
+        lifecycleScope.launch {
+            favoriteViewModel.getFavoriteList().observe(this@FavoriteActivity) { data ->
+                if (data.isEmpty()) {
+                    onFailed("No data available")
+                } else {
+                    onSuccess(data)
                 }
             }
         }

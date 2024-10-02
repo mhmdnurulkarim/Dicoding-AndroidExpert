@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.mhmdnurulkarim.core.data.Resource
 import com.mhmdnurulkarim.core.domain.model.User
 import com.mhmdnurulkarim.core.ui.UserAdapter
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
                     R.id.menu_darkTheme -> {
 //                        startActivity(Intent(this@MainActivity, DarkThemeActivity::class.java))
-                        Toast.makeText(this@MainActivity, "InPorgress", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(binding.root, "InPorgress", Snackbar.LENGTH_SHORT).show()
                     }
                 }
                 true
