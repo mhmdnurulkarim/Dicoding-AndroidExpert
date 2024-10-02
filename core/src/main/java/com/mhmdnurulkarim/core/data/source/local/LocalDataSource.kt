@@ -8,14 +8,10 @@ class LocalDataSource(private val dao: UserDao) {
 
     fun getFavoriteListUser(): Flow<List<UserEntity>> = dao.getFavoriteListUser()
 
-    fun getFavoriteDetailState(username: String): Flow<UserEntity> = dao.getFavoriteDetailState(username)
+    fun getFavoriteDetailState(username: String): Flow<UserEntity> =
+        dao.getFavoriteDetailState(username)
 
     suspend fun insertFavoriteUser(user: UserEntity) = dao.insertFavoriteUser(user)
 
     suspend fun deleteFavoriteUser(user: UserEntity) = dao.deleteFavoriteUser(user)
-
-//    suspend fun saveThemeSetting(isDarkModeActive: Boolean) =
-//        dataStore.saveThemeSetting(isDarkModeActive)
-//
-//    fun getThemeSetting() = dataStore.getThemeSetting()
 }

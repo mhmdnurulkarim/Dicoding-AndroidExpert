@@ -54,7 +54,7 @@ val networkModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
-    single { UserDataStore.getInstance(androidContext().dataStore) }
+    single { UserDataStore(androidContext().dataStore) }
     single<IUserRepository> {
         UserRepository(
             get(),

@@ -34,7 +34,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 emit(ApiResponse.Success(userDetail))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                Log.d("RemoteDataSource", e.toString())
             }
         }.flowOn(Dispatchers.IO)
 
@@ -45,7 +45,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 emit(ApiResponse.Success(userFollower))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                Log.d("RemoteDataSource", e.toString())
             }
         }.flowOn(Dispatchers.IO)
 
@@ -56,7 +56,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 emit(ApiResponse.Success(userFollowing))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                Log.d("RemoteDataSource", e.toString())
             }
         }.flowOn(Dispatchers.IO)
 }
