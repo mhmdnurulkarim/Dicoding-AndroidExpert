@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -40,60 +42,59 @@ android {
         buildConfig = true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
-    api("androidx.core:core-ktx:1.13.1")
-    api("androidx.appcompat:appcompat:1.7.0")
-    api("com.google.android.material:material:1.12.0")
-    api("androidx.constraintlayout:constraintlayout:2.1.4")
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.appcompat)
+    api(libs.material)
+    api(libs.androidx.constraintlayout)
 
-    testApi("junit:junit:4.13.2")
-    androidTestApi("androidx.test.ext:junit:1.2.1")
-    androidTestApi("androidx.test.espresso:espresso-core:3.6.1")
-    api("androidx.multidex:multidex:2.0.1")
+    testApi(libs.junit)
+    androidTestApi(libs.androidx.junit)
+    androidTestApi(libs.androidx.espresso.core)
+    api(libs.androidx.multidex)
 
-    api("androidx.activity:activity-ktx:1.9.2")
-    api("androidx.fragment:fragment-ktx:1.8.4")
+    api(libs.androidx.activity.ktx)
+    api(libs.androidx.fragment.ktx)
 
     //Coroutine
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
-    api("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
-    api ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
-    api("androidx.navigation:navigation-fragment-ktx:2.8.2")
-    api("androidx.navigation:navigation-ui-ktx:2.8.2")
+    api (libs.kotlinx.coroutines.core)
+    api (libs.kotlinx.coroutines.android)
+    api(libs.androidx.lifecycle.viewmodel.ktx)
+    api(libs.androidx.lifecycle.livedata.ktx)
+    api (libs.androidx.lifecycle.runtime.ktx)
+    api(libs.androidx.navigation.fragment.ktx)
+    api(libs.androidx.navigation.ui.ktx)
 
     //Injection: Koin
-    api("io.insert-koin:koin-core:3.5.3")
-    api("io.insert-koin:koin-android:3.5.3")
-    ksp("io.insert-koin:koin-ksp-compiler:1.3.1")
+    api(libs.koin.core)
+    api(libs.koin.android)
+    ksp(libs.koin.ksp.compiler)
 
     //Retrofit
-    api("com.squareup.retrofit2:retrofit:2.9.0")
-    api("com.squareup.retrofit2:converter-gson:2.9.0")
-    api("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    api(libs.retrofit)
+    api(libs.converter.gson)
+    api(libs.logging.interceptor)
 
     //Room
-    api("androidx.room:room-ktx:2.6.1")
-    api("androidx.room:room-runtime:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    api(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     //DataStore
-    api("androidx.datastore:datastore-preferences:1.1.1")
+    api(libs.androidx.datastore.preferences)
 
     //Glide
-    api("com.github.bumptech.glide:glide:4.16.0")
-    api("de.hdodenhof:circleimageview:3.1.0")
+    api(libs.glide)
+    api(libs.circleimageview)
 
     //LeakCanary
-    debugApi("com.squareup.leakcanary:leakcanary-android:2.14")
-    api("com.squareup.leakcanary:leakcanary-deobfuscation-gradle-plugin:2.4")
+    debugApi(libs.leakcanary.android)
+    api(libs.leakcanary.deobfuscation.gradle.plugin)
 }

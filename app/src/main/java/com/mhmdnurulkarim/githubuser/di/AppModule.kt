@@ -8,7 +8,7 @@ import com.mhmdnurulkarim.githubuser.followersFragment.FollowersViewModel
 import com.mhmdnurulkarim.githubuser.followingFragment.FollowingViewModel
 import com.mhmdnurulkarim.githubuser.mainActivity.MainViewModel
 import com.mhmdnurulkarim.githubuser.splashActivity.SplashViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val useCaseModule = module {
