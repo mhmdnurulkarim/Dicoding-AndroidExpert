@@ -7,15 +7,14 @@ plugins {
 
 android {
     namespace = "com.mhmdnurulkarim.githubuser"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.mhmdnurulkarim.githubuser"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +36,7 @@ android {
         jvmTarget = "17"
     }
     dynamicFeatures += setOf(":favorite")
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {

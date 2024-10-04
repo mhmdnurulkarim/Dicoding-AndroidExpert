@@ -1,5 +1,3 @@
-import com.android.build.api.dsl.Packaging
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -17,7 +15,7 @@ plugins {
 
 android {
     namespace = "com.mhmdnurulkarim.core"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 26
@@ -48,6 +46,7 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -55,11 +54,11 @@ dependencies {
     api(libs.androidx.appcompat)
     api(libs.material)
     api(libs.androidx.constraintlayout)
+    implementation(platform(libs.kotlin.bom))
 
     testApi(libs.junit)
     androidTestApi(libs.androidx.junit)
     androidTestApi(libs.androidx.espresso.core)
-    api(libs.androidx.multidex)
 
     api(libs.androidx.activity.ktx)
     api(libs.androidx.fragment.ktx)
@@ -82,6 +81,7 @@ dependencies {
     api(libs.retrofit)
     api(libs.converter.gson)
     api(libs.logging.interceptor)
+    implementation(libs.okhttp)
 
     //Room
     api(libs.androidx.room.ktx)
@@ -97,4 +97,8 @@ dependencies {
     //LeakCanary
     debugApi(libs.leakcanary.android)
     api(libs.leakcanary.deobfuscation.gradle.plugin)
+
+    //Database Encryption
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
 }

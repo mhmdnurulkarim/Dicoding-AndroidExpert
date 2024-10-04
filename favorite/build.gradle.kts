@@ -4,7 +4,7 @@ plugins {
 }
 android {
     namespace = "com.mhmdnurulkarim.favorite"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 26
@@ -14,10 +14,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     buildFeatures{
@@ -30,11 +26,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
     implementation(project(":core"))
     implementation(project(":app"))
-
-//    androidTestImplementation("androidx.annotation:annotation:1.8.2")
 }

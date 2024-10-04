@@ -11,14 +11,12 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiService: ApiService) {
 
-    suspend fun searchUser(query: String?): Flow<ApiResponse<List<UserResponse>>> =
+    fun searchUser(query: String?): Flow<ApiResponse<List<UserResponse>>> =
         flow {
             try {
                 val userSearch = apiService.searchUser(query)
                 val userArray = userSearch.items
-                if (userArray.isEmpty()) {
-                    emit(ApiResponse.Empty)
-                } else {
+                if (userArray.isNotEmpty()) {
                     emit(ApiResponse.Success(userArray))
                 }
             } catch (e: Exception) {
@@ -27,7 +25,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
 
-    suspend fun getDetailUser(username: String): Flow<ApiResponse<UserResponse>> =
+    fun getDetailUser(username: String): Flow<ApiResponse<UserResponse>> =
         flow {
             try {
                 val userDetail = apiService.getDetailUser(username)
@@ -38,7 +36,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
 
-    suspend fun getUserFollowers(username: String): Flow<ApiResponse<List<UserResponse>>> =
+    fun getUserFollowers(username: String): Flow<ApiResponse<List<UserResponse>>> =
         flow {
             try {
                 val userFollower = apiService.getUserFollowers(username)
@@ -49,7 +47,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
 
-    suspend fun getUserFollowing(username: String): Flow<ApiResponse<List<UserResponse>>> =
+    fun getUserFollowing(username: String): Flow<ApiResponse<List<UserResponse>>> =
         flow {
             try {
                 val userFollowing = apiService.getUserFollowing(username)

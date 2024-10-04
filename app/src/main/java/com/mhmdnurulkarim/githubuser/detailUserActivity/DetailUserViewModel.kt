@@ -3,7 +3,6 @@ package com.mhmdnurulkarim.githubuser.detailUserActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.mhmdnurulkarim.core.data.source.remote.response.UserResponse
 import com.mhmdnurulkarim.core.domain.model.User
 import com.mhmdnurulkarim.core.domain.usecase.UserUseCase
 import kotlinx.coroutines.Dispatchers

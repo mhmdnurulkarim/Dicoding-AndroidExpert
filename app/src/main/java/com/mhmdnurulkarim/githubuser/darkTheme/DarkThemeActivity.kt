@@ -9,11 +9,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DarkThemeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDarkThemeBinding
-    private val darkViewModel: DarkThemeViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDarkThemeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val darkViewModel: DarkThemeViewModel by viewModel()
 
         binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
             darkViewModel.saveThemeSetting(isChecked)
