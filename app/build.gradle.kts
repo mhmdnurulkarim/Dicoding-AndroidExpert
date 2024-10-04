@@ -36,10 +36,42 @@ android {
         jvmTarget = "17"
     }
     dynamicFeatures += setOf(":favorite")
-    buildToolsVersion = "34.0.0"
+    buildToolsVersion = "35.0.0"
 }
 
 dependencies {
     implementation(project(":core"))
+
+    //Core
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(platform(libs.kotlin.bom))
+
+    //UnitTest
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    //Glide
+    implementation(libs.glide)
+    implementation(libs.circleimageview)
+
+    //Coroutine
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    //LiveData
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    //Injection: Koin
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
     ksp(libs.koin.ksp.compiler)
+
+    //LeakCanary
+    debugImplementation(libs.leakcanary.android)
+    implementation(libs.leakcanary.deobfuscation.gradle.plugin)
 }

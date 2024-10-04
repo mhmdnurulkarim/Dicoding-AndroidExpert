@@ -1,9 +1,9 @@
 package com.mhmdnurulkarim.githubuser.detailUserActivity
 
-import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.bundle.Bundle
 import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions

@@ -1,11 +1,10 @@
 package com.mhmdnurulkarim.githubuser.splashActivity
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.bundle.Bundle
 import com.bumptech.glide.Glide
 import com.mhmdnurulkarim.githubuser.R
 import com.mhmdnurulkarim.githubuser.databinding.ActivitySplashBinding
@@ -13,7 +12,6 @@ import com.mhmdnurulkarim.githubuser.mainActivity.MainActivity
 import com.mhmdnurulkarim.githubuser.utils.Const.TIME_SPLASH
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     private val splashViewModel: SplashViewModel by viewModel()

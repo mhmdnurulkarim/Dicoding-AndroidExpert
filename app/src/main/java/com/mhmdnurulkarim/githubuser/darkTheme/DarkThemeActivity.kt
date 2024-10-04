@@ -1,8 +1,8 @@
 package com.mhmdnurulkarim.githubuser.darkTheme
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.bundle.Bundle
 import com.mhmdnurulkarim.githubuser.databinding.ActivityDarkThemeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

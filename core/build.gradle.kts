@@ -3,15 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
-//    id("com.squareup.leakcanary.deobfuscation")
 }
-
-//leakCanary {
-//    // LeakCanary needs to know which variants have obfuscation turned on
-//    filterObfuscatedVariants { variant ->
-//        variant.name == "debug"
-//    }
-//}
 
 android {
     namespace = "com.mhmdnurulkarim.core"
@@ -46,57 +38,51 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildToolsVersion = "34.0.0"
+    buildToolsVersion = "35.0.0"
 }
 
 dependencies {
-    api(libs.androidx.core.ktx)
-    api(libs.androidx.appcompat)
-    api(libs.material)
-    api(libs.androidx.constraintlayout)
+    //Core
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
     implementation(platform(libs.kotlin.bom))
 
-    testApi(libs.junit)
-    androidTestApi(libs.androidx.junit)
-    androidTestApi(libs.androidx.espresso.core)
-
-    api(libs.androidx.activity.ktx)
-    api(libs.androidx.fragment.ktx)
+    //UnitTest
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     //Coroutine
-    api (libs.kotlinx.coroutines.core)
-    api (libs.kotlinx.coroutines.android)
-    api(libs.androidx.lifecycle.viewmodel.ktx)
-    api(libs.androidx.lifecycle.livedata.ktx)
-    api (libs.androidx.lifecycle.runtime.ktx)
-    api(libs.androidx.navigation.fragment.ktx)
-    api(libs.androidx.navigation.ui.ktx)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     //Injection: Koin
-    api(libs.koin.core)
-    api(libs.koin.android)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
     ksp(libs.koin.ksp.compiler)
 
     //Retrofit
-    api(libs.retrofit)
-    api(libs.converter.gson)
-    api(libs.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
     implementation(libs.okhttp)
 
     //Room
-    api(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
     //DataStore
-    api(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.datastore.preferences)
 
     //Glide
-    api(libs.glide)
-    api(libs.circleimageview)
+    implementation(libs.glide)
+    implementation(libs.circleimageview)
 
     //LeakCanary
-    debugApi(libs.leakcanary.android)
-    api(libs.leakcanary.deobfuscation.gradle.plugin)
+    debugImplementation(libs.leakcanary.android)
+    implementation(libs.leakcanary.deobfuscation.gradle.plugin)
 
     //Database Encryption
     implementation(libs.android.database.sqlcipher)
