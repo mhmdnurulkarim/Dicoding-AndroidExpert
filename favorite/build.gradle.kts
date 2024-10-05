@@ -1,8 +1,9 @@
 plugins {
-    id("com.android.dynamic-feature")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.android.dynamic.feature)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.devtools.ksp)
 }
+
 android {
     namespace = "com.mhmdnurulkarim.favorite"
     compileSdk = 35
@@ -33,11 +34,18 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":app"))
+
+    //Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(platform(libs.kotlin.bom))
+
+    //UnitTest
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     //Coroutine
     implementation(libs.kotlinx.coroutines.core)
